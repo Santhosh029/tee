@@ -220,7 +220,6 @@ input:focus {
     min-height: 65px;
 }
 
-/* Staggered Row Ordering layouts */
 .step-row.left-step { justify-content: flex-start; text-align: left; }
 .step-row.right-step { justify-content: flex-end; flex-direction: row-reverse; text-align: right; }
 
@@ -257,7 +256,6 @@ input:focus {
     margin: 0;
 }
 
-/* Step Typography Elements Styles */
 .pop-text {
     font-family: 'Caveat', cursive, sans-serif;
     font-size: 34px;
@@ -276,7 +274,6 @@ input:focus {
     transform: translateX(20px) scale(0.8);
 }
 
-/* Premium Layout Style for Special Final Title */
 .pop-text.special-title {
     font-size: 38px;
     background: linear-gradient(45deg, #ffd700, #ff7675, #ffd700);
@@ -295,11 +292,11 @@ input:focus {
     100% { background-position: 200% center; }
 }
 
-/* --- Page 4: 3D Luxury Flip Heart Envelope --- */
-.card-container { perspective: 1600px; width: 380px; height: 270px; margin: 35px auto 20px auto; }
+/* --- Page 4: 3D Luxury Flip Image Note Frame Tweak --- */
+.card-container { perspective: 1600px; width: 440px; height: 500px; margin: 25px auto 20px auto; }
 .birthday-card { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
-.birthday-card.open { transform: rotateY(-150deg); }
-.card-front, .card-inside { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
+.birthday-card.open { transform: rotateY(-180deg); }
+.card-front, .card-inside { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
 
 .card-front {
     background: linear-gradient(135deg, #240b0e, #0f0406);
@@ -308,24 +305,30 @@ input:focus {
     z-index: 2;
 }
 .card-inside {
-    background: #190a0c;
-    border: 1px solid rgba(214,48,49,0.25);
+    background: #140709;
+    border: 1px solid rgba(214,48,49,0.35);
     color: white;
     transform: rotateY(180deg) translateZ(1px);
     z-index: 1;
+    overflow-y: auto;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 30px 24px;
 }
 
+/* Tailored scrollbar aesthetic tracking for luxury window */
+.card-inside::-webkit-scrollbar { width: 4px; }
+.card-inside::-webkit-scrollbar-thumb { background: var(--rose-gold); border-radius: 10px; }
+
 .rose-trigger {
-    font-size: 60px;
+    font-size: 65px;
     animation: heartpulsate 2s infinite ease-in-out;
     display: inline-block;
     cursor: pointer;
     filter: drop-shadow(0 0 10px rgba(214,48,49,0.6));
     transition: transform 0.3s ease;
 }
-.rose-trigger:hover {
-    transform: scale(1.15);
-}
+.rose-trigger:hover { transform: scale(1.15); }
 
 /* --- Page 5: Pulsing Velvet Heart-Box Surprise --- */
 .gift-scene { width: 220px; height: 220px; margin: 30px auto; position: relative; cursor: pointer; }
@@ -373,19 +376,13 @@ input:focus {
     100% { transform: scale(0); opacity: 0; filter: blur(6px); }
 }
 
-/* --- Page 6: Immersive Polaroid Slides Deck --- */
+/* --- Page 6: Immersive Polaroid Slides Deck (Modified for 1848x4000 resolution scaling framework) --- */
 .gallery-container {
-    width: 100%; 
-    max-width: 440px; 
-    height: 550px; /* Increased height to beautifully showcase your tall vertical images */
-    position: relative; 
-    margin: 25px auto; 
-    overflow: hidden;
-    border-radius: 20px; 
-    border: 2px solid var(--rose-gold);
+    width: 100%; max-width: 440px; height: 550px;
+    position: relative; margin: 25px auto; overflow: hidden;
+    border-radius: 20px; border: 2px solid var(--rose-gold);
     box-shadow: 0 0 30px rgba(214, 48, 49, 0.25);
 }
-   
 .slide { position: absolute; inset: 0; opacity: 0; transform: scale(1.1) rotate(1deg); transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out; }
 .slide.active { opacity: 1; transform: scale(1) rotate(0deg); }
 .slide img { width: 100%; height: 100%; object-fit: cover; }
@@ -443,19 +440,14 @@ for(let i=0; i<45; i++){
         <p style="margin-bottom: 15px;">Click each envelope to uncover your message step-by-step.</p>
         
         <div class="cross-step-container">
-            <!-- Step 1: Left Row -->
             <div class="step-row left-step">
                 <div class="love-note" onclick="openNote(this)">✉️</div>
                 <div class="pop-text">❤️ Happy</div>
             </div>
-            
-            <!-- Step 2: Right Row -->
             <div class="step-row right-step">
                 <div class="love-note" onclick="openNote(this)">💌</div>
                 <div class="pop-text">❤️ Birthday</div>
             </div>
-            
-            <!-- Step 3: Left Row (Special Title) -->
             <div class="step-row left-step">
                 <div class="love-note" onclick="openNote(this)">💝</div>
                 <div class="pop-text special-title">Passenger Princess 💕</div>
@@ -466,9 +458,9 @@ for(let i=0; i<45; i++){
     </div>
 </section>
 
-<!-- PAGE 4: ROMANTIC 3D LETTER FLIP (ROSE TRIGGER) -->
+<!-- PAGE 4: ROMANTIC 3D LETTER FLIP (INTEGRATED POETRY NOTES) -->
 <section id="page4" class="page">
-    <div class="card-base">
+    <div class="card-base" style="width: 480px;">
         <h1>An Envelope For You ✉️</h1>
         <p>Tap the rose below to read your note message.</p>
         
@@ -477,13 +469,27 @@ for(let i=0; i<45; i++){
                 <div class="card-front">
                     <span class="rose-trigger">🌹</span>
                     <h3 style="margin-top: 15px;">To My Favorite Human</h3>
-                    <p style="font-size: 13px; color: var(--rose-gold); margin-top: 15px;">(Tap to Reveal Letter)</p>
+                    <p style="font-size: 13px; color: var(--rose-gold); margin-top: 15px;">(Tap to Open)</p>
                 </div>
                 <div class="card-inside">
-                    <h2 style="color: #ff7675; margin-bottom: 5px; font-size: 22px;">MY MESSAGE</h2>
-                    <hr style="width: 50px; border: none; height: 2px; background: var(--rose-gold); margin-bottom: 15px;">
-                    <p style="font-size: 14px; line-height: 1.7; font-weight: 400; color: #fcefe6;">
+                    <h2 style="color: #ff7675; margin-bottom: 2px; font-size: 19px; font-weight: 700;">Happy Birthday, my love.</h2>
+                    <hr style="width: 40px; border: none; height: 1.5px; background: var(--rose-gold); margin-bottom: 12px;">
+                    
+                    <p style="font-size: 13.5px; line-height: 1.6; font-weight: 300; color: #fcefe6; margin-bottom: 10px;">
                         You bring so much joy, light, and laughter into my universe. Thank you for being you, and for making every single moment beautiful. May this year offer you all the wonders you deserve!
+                    </p>
+                    <p style="font-size: 13.5px; line-height: 1.6; font-weight: 300; color: #fcefe6; margin-bottom: 10px;">
+                        You are the poetry my heart never knew how to write, the calm after every storm, and the dream I never want to wake from. Your love has painted my world with colors I never knew existed, and every moment beside you feels like a beautiful verse in the story of us.
+                    </p>
+                    <p style="font-size: 13.5px; line-height: 1.6; font-weight: 300; color: #fcefe6; margin-bottom: 10px;">
+                        Thank you for being the light that guides me, the laughter that fills my soul, and the love that makes every ordinary day extraordinary. May this new chapter of your life be as radiant as your smile, as gentle as your heart, and as endless as the love we share.
+                    </p>
+                    <p style="font-size: 13.5px; line-height: 1.6; font-weight: 300; color: #fcefe6; margin-bottom: 12px;">
+                        No matter where life takes us, my heart will always find its way back to you. Today, and every day, I celebrate the incredible person you are.
+                    </p>
+                    
+                    <p style="font-size: 14px; font-weight: 600; color: #ff7675; text-align: center; margin-top: 5px;">
+                        Happy Birthday to my forever, my always, my greatest love. ❤️
                     </p>
                 </div>
             </div>
@@ -586,23 +592,24 @@ function toggleCard() {
     document.getElementById("bCard").classList.toggle("open");
 }
 
-// Gift Opening Sequence Execution Maps
+// Gift Opening Sequence Execution Maps with Force-Audio bypass
 let boxOpened = false;
 function openGiftBox() {
     if(boxOpened) return;
     boxOpened = true;
+    
+    const audioStream = document.getElementById("bg-music");
+    if(audioStream) {
+        audioStream.play().catch(err => console.log("Audio pipeline hardware access initialization deferred."));
+    }
+    
     const box = document.getElementById("giftScene");
     box.classList.add("open");
     setTimeout(() => { navigate(5, 6); }, 1000);
 }
 
-// Memory Slider Deck Rotation Engine & Audio Setup
+// Memory Slider Deck Rotation Engine
 function startGalleryPlayback() {
-    const audioStream = document.getElementById("bg-music");
-    if(audioStream) {
-        audioStream.play().catch(err => console.log("Audio native stream pipelines deferred until click interaction frameworks."));
-    }
-
     let activeIndex = 0;
     const slides = document.querySelectorAll(".slide");
     if(slides.length <= 1) return;
@@ -639,7 +646,6 @@ function initConfettiRain() {
     requestAnimationFrame(updateConfettiFrame);
 }
 
-// Special Heart Drawing Paths for Celebration Canvas
 function drawConfettiHeart(ctx, x, y, size, color, angle) {
     ctx.save();
     ctx.translate(x, y);
