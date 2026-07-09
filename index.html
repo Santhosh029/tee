@@ -405,7 +405,7 @@ input:focus {
     100% { transform: scale(0); opacity: 0; filter: blur(6px); }
 }
 
-/* --- Page 6: Polaroid Slides Deck --- */
+/* --- Page 6: Polaroid Video Slides Deck --- */
 .gallery-container {
     width: 100%; max-width: 440px; height: 550px;
     position: relative; margin: 25px auto; overflow: hidden;
@@ -414,7 +414,7 @@ input:focus {
 }
 .slide { position: absolute; inset: 0; opacity: 0; transform: scale(1.1) rotate(1deg); transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out; }
 .slide.active { opacity: 1; transform: scale(1) rotate(0deg); }
-.slide img { width: 100%; height: 100%; object-fit: cover; }
+.slide video { width: 100%; height: 100%; object-fit: cover; }
 
 #confetti-canvas { position: absolute; inset: 0; pointer-events: none; z-index: 50; width: 100%; height: 100%; }
 </style>
@@ -436,7 +436,6 @@ for(let i=0; i<45; i++){
 }
 </script>
 
-<!-- PAGE 1: PASSION SECURE PORTAL -->
 <section id="page1" class="page active">
     <div class="card-base login-card" id="loginCard">
         <div style="margin-bottom: 12px;">
@@ -450,7 +449,6 @@ for(let i=0; i<45; i++){
     </div>
 </section>
 
-<!-- PAGE 1B: TIME GATE ENGINE (DYNAMICS CAPABLE OF COUNTDOWN & COUNT-UP) -->
 <section id="page1b" class="page">
     <div class="card-base">
         <h1 id="timer-title" style="font-size: 28px;">Patience, My Love... ⏳</h1>
@@ -467,7 +465,6 @@ for(let i=0; i<45; i++){
     </div>
 </section>
 
-<!-- PAGE 2: VALENTINE OVERTURE -->
 <section id="page2" class="page">
     <div class="card-base" style="padding: 50px 40px;">
         <h1 style="font-size: 45px; margin-bottom: 20px;">💖</h1>
@@ -481,7 +478,6 @@ for(let i=0; i<45; i++){
     </div>
 </section>
 
-<!-- PAGE 3: INTERACTIVE STAGGERED CROSS-STEP DECK -->
 <section id="page3" class="page">
     <div class="card-base">
         <h1>Tap My Love Notes! 💖</h1>
@@ -506,7 +502,6 @@ for(let i=0; i<45; i++){
     </div>
 </section>
 
-<!-- PAGE 4: ROMANTIC 3D LETTER FLIP -->
 <section id="page4" class="page">
     <div class="card-base" style="width: 500px; padding: 35px 25px;">
         <h1>An Envelope For You ✉️</h1>
@@ -551,7 +546,6 @@ for(let i=0; i<45; i++){
     </div>
 </section>
 
-<!-- PAGE 5: THE KINETIC BEATING BOX -->
 <section id="page5" class="page">
     <div class="card-base">
         <h1>"One Last Thing..." 🎁</h1>
@@ -572,18 +566,17 @@ for(let i=0; i<45; i++){
     </div>
 </section>
 
-<!-- PAGE 6: IMMERSIVE IMAGE CANVAS -->
 <section id="page6" class="page">
     <div class="card-base" style="width: 550px; padding: 35px 25px;">
         <h1 style="margin-bottom: 2px;">Forever Beautiful ✨</h1>
         <p style="color: #ff7675; font-weight: 600; margin-bottom: 20px; font-size: 18px;">Happy Birthday, My Love!</p>
         
         <div class="gallery-container">
-            <div class="slide active"><img src="photo1.jpg" alt="Memory Photo 1"></div>
-            <div class="slide"><img src="photo2.jpg" alt="Memory Photo 2"></div>
-            <div class="slide"><img src="photo3.jpg" alt="Memory Photo 3"></div>
-            <div class="slide"><img src="photo4.jpg" alt="Memory Photo 4"></div>
-            <div class="slide"><img src="photo5.jpg" alt="Memory Photo 5"></div>
+            <div class="slide active"><video src="video1.mp4" autoplay muted loop playsinline></video></div>
+            <div class="slide"><video src="video2.mp4" autoplay muted loop playsinline></video></div>
+            <div class="slide"><video src="video3.mp4" autoplay muted loop playsinline></video></div>
+            <div class="slide"><video src="video4.mp4" autoplay muted loop playsinline></video></div>
+            <div class="slide"><video src="video5.mp4" autoplay muted loop playsinline></video></div>
         </div>
 
         <p style="font-size: 13px; color: #a48e91; margin-top: 15px;">Turning another year older, but always the same amazing soul.</p>
@@ -639,6 +632,7 @@ function checkLogin(){
 // TIMELOCK CLOCK & LIVE COUNT-UP ENGINE FROM DOB
 let timerInterval;
 function startTimerEngine() {
+    // Target Date Config Targets
     const unlockTarget = new Date("2026-07-10T10:25:00+05:30").getTime();
     const birthDate = new Date("1999-07-10T10:25:00+05:30");
 
@@ -749,11 +743,12 @@ function startGalleryPlayback() {
     const slides = document.querySelectorAll(".slide");
     if(slides.length <= 1) return;
     
+    // Set to 9000ms (9 seconds) to fit your video clips comfortably!
     setInterval(() => {
         slides[activeIndex].classList.remove("active");
         activeIndex = (activeIndex + 1) % slides.length;
         slides[activeIndex].classList.add("active");
-    }, 3500);
+    }, 9000);
 }
 
 let canvas, ctx, pieces = [];
