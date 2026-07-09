@@ -108,7 +108,7 @@ body::before {
     text-align: center;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(214, 48, 49, 0.15);
     padding: 45px 35px;
-    width: 520px;
+    width: 540px;
     max-width: 100%;
     position: relative;
     z-index: 12;
@@ -204,76 +204,79 @@ input:focus {
 @keyframes cardViolentShake { 0%, 100% { transform: translateX(0); } 15%, 45%, 75% { transform: translateX(-10px); } 30%, 60%, 90% { transform: translateX(10px); } }
 @keyframes accessGrantedDismiss { 100% { transform: scale(0.75); opacity: 0; filter: blur(12px); } }
 
-/* --- Page 3: Love Note Hearts Replacement --- */
-.love-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    margin: 40px 0 30px 0;
-    height: 180px;
-}
-.love-wrapper {
+/* --- Page 3: Re-Engineered Cross Step Layout Stack --- */
+.cross-step-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: relative;
-    width: 33%;
+    gap: 15px;
+    width: 100%;
+    margin-top: 30px;
 }
+
+.step-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 65px;
+}
+
+/* Staggered Row Ordering layouts */
+.step-row.left-step { justify-content: flex-start; text-align: left; }
+.step-row.right-step { justify-content: flex-end; flex-direction: row-reverse; text-align: right; }
+
 .love-note {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid rgba(214, 48, 49, 0.5);
-    border-radius: 20px;
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 32px;
+    font-size: 26px;
     cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    animation: floatingNote 3s ease-in-out infinite alternate;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    flex-shrink: 0;
 }
-.b1 { animation-delay: 0s; box-shadow: 0 0 15px rgba(255, 71, 87, 0.2); }
-.b2 { animation-delay: 0.5s; box-shadow: 0 0 15px rgba(214, 48, 49, 0.2); }
-.b3 { animation-delay: 1s; box-shadow: 0 0 15px rgba(232, 67, 147, 0.2); }
+
+.left-step .love-note { margin-right: 20px; }
+.right-step .love-note { margin-left: 20px; }
 
 .love-note:hover {
-    transform: scale(1.15) translateY(-8px);
+    transform: scale(1.1) translateY(-3px);
     background: rgba(214, 48, 49, 0.15);
     border-color: #ff7675;
-    box-shadow: 0 0 25px rgba(214, 48, 49, 0.4);
 }
 
 .love-note.opened {
     transform: scale(0);
     opacity: 0;
     pointer-events: none;
+    width: 0;
+    margin: 0;
 }
 
-@keyframes floatingNote {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-15px); }
-}
-
-/* Rebuilt Step-Wise Cursive Typography Cascade Engine */
+/* Step Typography Elements Styles */
 .pop-text {
-    position: absolute;
     font-family: 'Caveat', cursive, sans-serif;
-    font-size: 36px;
-    white-space: nowrap;
+    font-size: 34px;
     opacity: 0;
-    transform: scale(0.5);
+    transform: translateX(-20px) scale(0.8);
     transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     background: linear-gradient(45deg, #ff7675, #fff, #ff7675);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shineText 3s linear infinite;
+    white-space: nowrap;
 }
 
-/* Premium Gradient Layout Shimmering for Final Title */
+.right-step .pop-text {
+    transform: translateX(20px) scale(0.8);
+}
+
+/* Premium Layout Style for Special Final Title */
 .pop-text.special-title {
     font-size: 38px;
     background: linear-gradient(45deg, #ffd700, #ff7675, #ffd700);
@@ -284,17 +287,12 @@ input:focus {
 
 .love-note.opened ~ .pop-text { 
     opacity: 1; 
-    transform: scale(1);
-    animation: shineText 3s linear infinite, dramaticGrow 0.8s ease-out forwards;
+    transform: translateX(0) scale(1);
 }
 
 @keyframes shineText {
     0% { background-position: 0% center; }
     100% { background-position: 200% center; }
-}
-@keyframes dramaticGrow {
-    0% { transform: scale(0.3) translateY(20px); filter: blur(5px); }
-    100% { transform: scale(1) translateY(0); filter: blur(0); }
 }
 
 /* --- Page 4: 3D Luxury Flip Heart Envelope --- */
@@ -432,23 +430,28 @@ for(let i=0; i<45; i++){
     </div>
 </section>
 
-<!-- PAGE 3: REPLACED CONTENT (LOVE NOTES HEARTS) -->
+<!-- PAGE 3: INTERACTIVE STAGGERED CROSS-STEP DECK -->
 <section id="page3" class="page">
-    <div class="card-base" style="width: 600px;">
+    <div class="card-base">
         <h1>Tap My Love Notes! 💖</h1>
-        <p>Gently click each sealed secret container below to uncover your hidden titles.</p>
+        <p style="margin-bottom: 15px;">Click each envelope to uncover your message step-by-step.</p>
         
-        <div class="love-container">
-            <div class="love-wrapper">
-                <div class="love-note b1" onclick="openNote(this)">✉️</div>
+        <div class="cross-step-container">
+            <!-- Step 1: Left Row -->
+            <div class="step-row left-step">
+                <div class="love-note" onclick="openNote(this)">✉️</div>
                 <div class="pop-text">❤️ Happy</div>
             </div>
-            <div class="love-wrapper">
-                <div class="love-note b2" onclick="openNote(this)">💌</div>
+            
+            <!-- Step 2: Right Row -->
+            <div class="step-row right-step">
+                <div class="love-note" onclick="openNote(this)">💌</div>
                 <div class="pop-text">❤️ Birthday</div>
             </div>
-            <div class="love-wrapper">
-                <div class="love-note b3" onclick="openNote(this)">💝</div>
+            
+            <!-- Step 3: Left Row (Special Title) -->
+            <div class="step-row left-step">
+                <div class="love-note" onclick="openNote(this)">💝</div>
                 <div class="pop-text special-title">Passenger Princess 💕</div>
             </div>
         </div>
