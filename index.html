@@ -35,7 +35,6 @@ body {
     position: relative;
 }
 
-/* Cosmic Valentine Moving Nebula Background */
 body::before {
     content: "";
     position: absolute;
@@ -54,7 +53,6 @@ body::before {
     50% { background-position: 100% 50%; filter: brightness(1.1); }
 }
 
-/* Floating Miniature Hearts Generator Style */
 .heart-particle {
     position: absolute;
     color: rgba(214, 48, 49, 0.4);
@@ -73,7 +71,6 @@ body::before {
     100% { transform: translateY(-10vh) scale(1.3) rotate(360deg) opacity: 0; }
 }
 
-/* Seamless Framework Router Transitions */
 .page {
     display: none;
     position: absolute;
@@ -98,7 +95,6 @@ body::before {
     pointer-events: all;
 }
 
-/* Velvet Rose Glassmorphic Container Cards */
 .card-base {
     background: rgba(18, 10, 12, 0.82);
     border: 1px solid rgba(214, 48, 49, 0.35);
@@ -130,7 +126,6 @@ p {
     font-weight: 300;
 }
 
-/* Velvet Premium Interactive Action Buttons */
 button {
     margin-top: 25px;
     padding: 16px 42px;
@@ -172,10 +167,6 @@ button:disabled {
     transform: none;
     border: 1px solid rgba(214, 48, 49, 0.1);
 }
-
-/* ==========================================================================
-   2. ROMANCE MODULE COMPONENT ANIMATIONS
-   ========================================================================== */
 
 /* --- Page 1: Secure Security Entry Port --- */
 .login-card { width: 400px; }
@@ -232,7 +223,23 @@ input:focus {
     letter-spacing: 1px;
 }
 
-/* --- Page 3: Re-Engineered Cross Step Layout Stack --- */
+/* --- Page 2 Alternative Layout Configuration --- */
+.quote-highlight {
+    font-family: 'Caveat', cursive, sans-serif;
+    color: #ff7675;
+    font-size: 34px;
+    display: block;
+    margin-bottom: 12px;
+    text-shadow: 0 0 10px rgba(255, 118, 117, 0.2);
+}
+.quote-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+}
+
+/* --- Page 3: Staggered Cross Step Layout --- */
 .cross-step-container {
     display: flex;
     flex-direction: column;
@@ -240,14 +247,12 @@ input:focus {
     width: 100%;
     margin-top: 30px;
 }
-
 .step-row {
     display: flex;
     align-items: center;
     width: 100%;
     min-height: 65px;
 }
-
 .step-row.left-step { justify-content: flex-start; text-align: left; }
 .step-row.right-step { justify-content: flex-end; flex-direction: row-reverse; text-align: right; }
 
@@ -266,7 +271,6 @@ input:focus {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     flex-shrink: 0;
 }
-
 .left-step .love-note { margin-right: 20px; }
 .right-step .love-note { margin-left: 20px; }
 
@@ -275,7 +279,6 @@ input:focus {
     background: rgba(214, 48, 49, 0.15);
     border-color: #ff7675;
 }
-
 .love-note.opened {
     transform: scale(0);
     opacity: 0;
@@ -283,7 +286,6 @@ input:focus {
     width: 0;
     margin: 0;
 }
-
 .pop-text {
     font-family: 'Caveat', cursive, sans-serif;
     font-size: 34px;
@@ -297,11 +299,7 @@ input:focus {
     animation: shineText 3s linear infinite;
     white-space: nowrap;
 }
-
-.right-step .pop-text {
-    transform: translateX(20px) scale(0.8);
-}
-
+.right-step .pop-text { transform: translateX(20px) scale(0.8); }
 .pop-text.special-title {
     font-size: 38px;
     background: linear-gradient(45deg, #ffd700, #ff7675, #ffd700);
@@ -309,11 +307,7 @@ input:focus {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
-.love-note.opened ~ .pop-text { 
-    opacity: 1; 
-    transform: translateX(0) scale(1);
-}
+.love-note.opened ~ .pop-text { opacity: 1; transform: translateX(0) scale(1); }
 
 @keyframes shineText {
     0% { background-position: 0% center; }
@@ -321,13 +315,7 @@ input:focus {
 }
 
 /* --- Page 4: 3D Flip Card Container Layout --- */
-.card-container { 
-    perspective: 1600px; 
-    width: 100%; 
-    max-width: 440px; 
-    height: 440px; 
-    margin: 20px auto; 
-}
+.card-container { perspective: 1600px; width: 100%; max-width: 440px; height: 440px; margin: 20px auto; }
 .birthday-card { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
 .birthday-card.open { transform: rotateY(-180deg); }
 .card-front, .card-inside { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
@@ -349,7 +337,6 @@ input:focus {
     text-align: left;
     padding: 25px 20px;
 }
-
 .card-inside::-webkit-scrollbar { width: 4px; }
 .card-inside::-webkit-scrollbar-thumb { background: var(--rose-gold); border-radius: 10px; }
 
@@ -363,7 +350,7 @@ input:focus {
 }
 .rose-trigger:hover { transform: scale(1.15); }
 
-/* --- Page 5: Pulsing Velvet Heart-Box Surprise --- */
+/* --- Page 5: Pulsing Heart Box --- */
 .gift-scene { width: 220px; height: 220px; margin: 30px auto; position: relative; cursor: pointer; }
 .gift-box {
     width: 130px; height: 120px;
@@ -409,7 +396,7 @@ input:focus {
     100% { transform: scale(0); opacity: 0; filter: blur(6px); }
 }
 
-/* --- Page 6: Immersive Polaroid Slides Deck --- */
+/* --- Page 6: Polaroid Slides Deck --- */
 .gallery-container {
     width: 100%; max-width: 440px; height: 550px;
     position: relative; margin: 25px auto; overflow: hidden;
@@ -429,7 +416,6 @@ input:focus {
 <canvas id="confetti-canvas"></canvas>
 
 <script>
-/* Dynamic Romantic Hearts Background Generator Engine */
 for(let i=0; i<45; i++){
     const heart = document.createElement("div");
     heart.className = "heart-particle";
@@ -449,18 +435,17 @@ for(let i=0; i<45; i++){
         </div>
         <h1>Our Sanctuary</h1>
         <p>Enter our special secret date to begin our romantic journey ❤️</p>
-        <!-- Notice placeholder changed for dev reference -->
         <input type="text" id="password" placeholder="DDMMYYYY" maxlength="8">
         <button onclick="checkLogin()">Unlock My Hearts ✨</button>
         <div id="error" class="error"></div>
     </div>
 </section>
 
-<!-- PAGE 1B: TIME GATE CRITERIA -->
+<!-- PAGE 1B: TIME GATE CRITERIA (UPDATED TO 10:25 AM) -->
 <section id="page1b" class="page">
     <div class="card-base">
         <h1 id="timer-title" style="font-size: 28px;">Patience, My Love... ⏳</h1>
-        <p id="timer-msg">Your birthday celebration is locked until July 10th at 9:30 AM IST.</p>
+        <p id="timer-msg">Your birthday celebration is locked until July 10th at 10:25 AM IST.</p>
         
         <div class="countdown-box">
             <div class="time-unit"><span id="days" class="time-number">00</span><span class="time-label">Days</span></div>
@@ -473,13 +458,16 @@ for(let i=0; i<45; i++){
     </div>
 </section>
 
-<!-- PAGE 2: VALENTINE TIMELINE OVERTURE -->
+<!-- PAGE 2: VALENTINE OVERTURE (ALTERNATIVE STRUCTURAL DESIGN) -->
 <section id="page2" class="page">
-    <div class="card-base">
-        <h1 style="font-size: 65px; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(214,48,49,0.4));">💝</h1>
-        <p style="font-size: 21px; font-weight: 400; color: #ff7675; line-height: 1.6; font-style: italic; padding: 0 10px;">
-            "In a universe full of shifting stars, meeting you remains my absolute favorite chapter of existence. ❤️🎉"
-        </p>
+    <div class="card-base" style="padding: 50px 40px;">
+        <h1 style="font-size: 55px; margin-bottom: 15px;">💖</h1>
+        <div style="margin-bottom: 10px;">
+            <span class="quote-highlight">"After eight years, I finally found the person my heart had been searching for all along...</span>
+            <p class="quote-body">
+                You are not just my love — you are the beautiful answer to every silent prayer I ever made. ❤️"
+            </p>
+        </div>
         <button onclick="navigate(2, 3)">Please Click Here My Love!</button>
     </div>
 </section>
@@ -526,7 +514,6 @@ for(let i=0; i<45; i++){
                     <h2 style="color: #ff7675; margin-bottom: 2px; font-size: 19px; font-weight: 700;">Happy Birthday, my love.</h2>
                     <hr style="width: 40px; border: none; height: 1.5px; background: var(--rose-gold); margin-bottom: 12px;">
                     
-                    <!-- HIGHLIGHTED POEM FRAME -->
                     <div style="border-left: 3px solid #ff7675; padding-left: 12px; margin-bottom: 15px; background: rgba(214, 48, 49, 0.08); padding-top: 8px; padding-bottom: 8px; border-radius: 0 10px 10px 0;">
                         <p style="font-size: 14px; line-height: 1.6; font-weight: 500; color: #ff7675; font-style: italic;">
                             "Eight years of waiting vanished in the moment you held my hand;<br>
@@ -534,7 +521,6 @@ for(let i=0; i<45; i++){
                         </p>
                     </div>
 
-                    <!-- PARAGRAPHS -->
                     <p style="font-size: 13.5px; line-height: 1.6; font-weight: 300; color: #fcefe6; margin-bottom: 12px;">
                         You are the poetry my heart never knew how to write, and the dream I never want to wake from. Your love has painted my world with colors I never knew existed.
                     </p>
@@ -556,7 +542,7 @@ for(let i=0; i<45; i++){
     </div>
 </section>
 
-<!-- PAGE 5: THE KINETIC BEATING BOX CHRONICLE -->
+<!-- PAGE 5: THE KINETIC BEATING BOX -->
 <section id="page5" class="page">
     <div class="card-base">
         <h1>"One Last Thing..." 🎁</h1>
@@ -577,7 +563,7 @@ for(let i=0; i<45; i++){
     </div>
 </section>
 
-<!-- PAGE 6: THE RED CAROUSEL MEMORY CANVAS -->
+<!-- PAGE 6: IMMERSIVE IMAGE CANVAS -->
 <section id="page6" class="page">
     <div class="card-base" style="width: 550px; padding: 35px 25px;">
         <h1 style="margin-bottom: 2px;">Forever Beautiful ✨</h1>
@@ -596,7 +582,6 @@ for(let i=0; i<45; i++){
 </section>
 
 <script>
-// Flow Router Management Systems
 function navigate(currentId, nextId) {
     const currentPage = document.getElementById(`page${currentId}`);
     const nextPage = document.getElementById(`page${nextId}`);
@@ -615,28 +600,25 @@ function navigate(currentId, nextId) {
     }, 300);
 }
 
-// Identity Validation Security Logic + Dev Bypass Engine
 function checkLogin(){
     const inputPass = document.getElementById("password").value.trim();
     const errorEl = document.getElementById("error");
     const cardEl = document.getElementById("loginCard");
     const lockEl = document.getElementById("lock");
 
-    // METHOD 1: DEVELOPMENT TESTING BACKDOOR BYPASS RULE
     if(inputPass === "devmode"){
         lockEl.innerHTML = "🔓";
         lockEl.style.transform = "scale(1.25)";
         setTimeout(() => { cardEl.classList.add("unlock"); }, 300);
-        setTimeout(() => { navigate(1, 2); }, 900); // Route instantly around Page 1b straight into Page 2 content
+        setTimeout(() => { navigate(1, 2); }, 900); 
         return;
     }
 
-    // PRODUCTION PRODUCTION LOGIC
     if(inputPass === "23052026"){
         lockEl.innerHTML = "🔓";
         lockEl.style.transform = "scale(1.25)";
         setTimeout(() => { cardEl.classList.add("unlock"); }, 300);
-        setTimeout(() => { navigate(1, '1b'); }, 900); // Standard routing chain through Time-Lock screen
+        setTimeout(() => { navigate(1, '1b'); }, 900); 
     } else {
         errorEl.innerHTML = "💖 Incorrect Password. Try our special date! ❤️";
         errorEl.style.display = "block";
@@ -645,10 +627,10 @@ function checkLogin(){
     }
 }
 
-// 10th July 9:30 AM IST Unlock Engine (Real-Time Counter)
+// TIMELOCK UNDERLYING CLOCK INTERCEPTOR ENGINE (UPDATED TO 10:25:00)
 let countdownInterval;
 function startCountdownTimer() {
-    const targetDate = new Date("2026-07-10T09:30:00+05:30").getTime();
+    const targetDate = new Date("2026-07-10T10:25:00+05:30").getTime();
     
     const titleEl = document.getElementById("timer-title");
     const msgEl = document.getElementById("timer-msg");
@@ -686,7 +668,6 @@ function startCountdownTimer() {
     countdownInterval = setInterval(updateTimer, 1000);
 }
 
-// Love Notes Interactive Counter Engine
 let openedNotesCount = 0;
 function openNote(element) {
     if(!element.classList.contains("opened")) {
@@ -698,12 +679,10 @@ function openNote(element) {
     }
 }
 
-// Envelope Card Flipping Action
 function toggleCard() {
     document.getElementById("bCard").classList.toggle("open");
 }
 
-// Gift Opening Sequence Execution with Audio triggers
 let boxOpened = false;
 function openGiftBox() {
     if(boxOpened) return;
@@ -711,7 +690,7 @@ function openGiftBox() {
     
     const audioStream = document.getElementById("bg-music");
     if(audioStream) {
-        audioStream.play().catch(err => console.log("Audio play permission synchronized."));
+        audioStream.play().catch(err => console.log("Audio play permission synced."));
     }
     
     const box = document.getElementById("giftScene");
@@ -719,7 +698,6 @@ function openGiftBox() {
     setTimeout(() => { navigate(5, 6); }, 1000);
 }
 
-// Memory Slider Gallery Transitions Engine
 function startGalleryPlayback() {
     let activeIndex = 0;
     const slides = document.querySelectorAll(".slide");
@@ -732,7 +710,6 @@ function startGalleryPlayback() {
     }, 3500);
 }
 
-// Heart Confetti Rain System Mechanics Canvas
 let canvas, ctx, pieces = [];
 function initConfettiRain() {
     canvas = document.getElementById("confetti-canvas");
@@ -763,11 +740,9 @@ function drawConfettiHeart(ctx, x, y, size, color, angle) {
     ctx.rotate((angle * Math.PI) / 180);
     ctx.beginPath();
     ctx.fillStyle = color;
-    
     ctx.moveTo(0, -size / 4);
     ctx.bezierCurveTo(size / 2, -size, size * 1.2, -size / 3, 0, size);
     ctx.bezierCurveTo(-size * 1.2, -size / 3, -size / 2, -size, 0, -size / 4);
-    
     ctx.fill();
     ctx.restore();
 }
@@ -777,9 +752,7 @@ function updateConfettiFrame() {
     pieces.forEach((p) => {
         p.y += p.speed;
         p.rotation += p.rotationSpeed;
-        
         drawConfettiHeart(ctx, p.x, p.y, p.size, p.color, p.rotation);
-
         if (p.y > canvas.height) {
             p.y = -20;
             p.x = Math.random() * canvas.width;
