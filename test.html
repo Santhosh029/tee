@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Birthday Surprise</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:#000;color:#fff;overflow:hidden}
+.page{display:none;height:100vh;justify-content:center;align-items:center;padding:20px}
+.page.active{display:flex}
+.card{max-width:430px;width:100%;background:rgba(20,20,20,.95);border:2px solid gold;border-radius:24px;padding:40px;text-align:center;box-shadow:0 0 30px rgba(255,215,0,.25)}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 20% 20%,rgba(255,215,0,.15),transparent 25%),linear-gradient(135deg,#000,#111,#000)}
+.star{position:fixed;width:3px;height:3px;background:gold;border-radius:50%;box-shadow:0 0 8px gold;animation:f 8s linear infinite}
+@keyframes f{from{transform:translateY(100vh)}to{transform:translateY(-10vh);opacity:0}}
+.lock,.heart{font-size:58px}.heart{animation:h 1.4s infinite}@keyframes h{50%{transform:scale(1.15)}}
+input,button{width:100%;padding:14px;border-radius:12px;border:0;margin-top:18px}
+button{background:linear-gradient(90deg,#FFD700,#fff09a);font-weight:700;cursor:pointer}
+.error{opacity:0;transition:.4s;color:#FFD700;margin-top:15px;background:rgba(255,215,0,.08);padding:10px;border-radius:10px}
+.error.show{opacity:1}
+.welcome{max-width:700px}.welcome h1{color:gold;margin-bottom:20px}.welcome p{line-height:1.8;margin-bottom:25px}
+.fade{animation:fade .8s forwards}@keyframes fade{to{opacity:0;transform:scale(.9)}}
+</style></head><body>
+<section id="page1" class="page active"><div class="card" id="loginCard"><div id="lock" class="lock">🔒</div><div class="heart">❤️</div><h2>Birthday Surprise</h2><p>Enter the secret password to continue ❤️</p><input id="password" type="password" placeholder="Enter Password"><button onclick="login()">Unlock My Surprise ✨</button><div id="error" class="error"></div></div></section>
+<section id="page2" class="page"><div class="card welcome"><h1 id="typing"></h1><p>Today isn't just another day... It's the day someone incredibly beautiful came into this world. Wishing you endless smiles, happiness and unforgettable memories. ❤️</p><button onclick="alert('Balloon page will be added next!')">Please Click Here!</button></div></section>
+<script>
+for(let i=0;i<80;i++){let s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'vw';s.style.animationDuration=(5+Math.random()*6)+'s';s.style.animationDelay=Math.random()*6+'s';document.body.appendChild(s);}
+function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active')}
+function type(){const t="A cutiepie was born on this day,\n26 years ago ❤️🎉";let i=0,e=document.getElementById('typing');e.innerHTML='';(function w(){if(i<=t.length){e.innerHTML=t.substring(0,i).replace("\n","<br>");i++;setTimeout(w,40)}})()}
+function login(){const p=password.value;const e=error; if(p==="23052026"){lock.textContent="🔓";confetti({particleCount:180,spread:100});loginCard.classList.add('fade');setTimeout(()=>{show('page2');type();},800);}else{e.textContent="💖 Hmm... Try the special date that means something to us. ❤️";e.classList.add('show');password.value='';password.focus();setTimeout(()=>e.classList.remove('show'),3000);}}
+</script></body></html>
